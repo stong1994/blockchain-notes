@@ -6,5 +6,8 @@
 - [truffle文档](https://truffleframework.com/docs/truffle/getting-started/creating-a-project)
 - [truffle boxes](https://truffleframework.com/docs/truffle/getting-started/creating-a-project),也就是一些truffle的开源项目
 
+* 2019.3.28
+解决页面空白问题（`<div id="petTemplate" style="display: none;">` => `<div id="petTemplate" style="display: block;">`）
+
 ### 遗留问题
-- 2019.3.27 宠物商店的页面显示异常.其他正常.
+- 2019.3.27 宠物商店的页面显示异常.其他正常.[已解决]
