@@ -17,7 +17,7 @@ contract STongToken is ERC20Burnable, ERC20Detailed {
     /**
      * @dev Constructor that gives msg.sender all of existing tokens.
      */
-    constructor () public payable ERC20Detailed("STongToken", "STT", DECIMALS) {
+    constructor () public ERC20Detailed("STongToken", "STT", DECIMALS) {
         _mint(msg.sender, INITIAL_SUPPLY);
     }
 }
