@@ -19,6 +19,11 @@
 - burn 调用者燃烧代币，这些代币将永远消失，不但调用者钱包代币减少，代币的总量也会减少。需要参数（燃烧的金额）
 - burnFrom 调用者燃烧一部分某个账户给予的可操作的代币。需要参数（原账户地址和燃烧的金额）
 
+### 发布到测试网（kovan）
+- kovan 申请ether地址：https://gitter.im/kovan-testnet/faucet
+- 合约地址：0x093A3a623Ca5a478d91e3E016e9fa8E1eeA38a25
+- 交易信息查看：https://kovan.etherscan.io/address/0x093a3a623ca5a478d91e3e016e9fa8e1eea38a25
+
 ### 记录一个错误
 在remix上运行合约调用交易的函数，报错
 ```
