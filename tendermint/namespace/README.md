@@ -3,7 +3,7 @@
 - 项目功能类似于买卖域名.
 
 ### 启动流程
-1. 安装dep, `get_tools`和`get_vendor_deps` 在Makefile中有指定安装命令
+1. 安装dep和依赖包, `get_tools`和`get_vendor_deps` 在Makefile中有指定安装命令
 ```
 make get_tools && make get_vendor_deps
 ```
@@ -111,6 +111,7 @@ curl -s http://localhost:1317/nameservice/names/jack1.id
 ```
 curl -s http://localhost:1317/nameservice/names/jack1.id/whois
 > {"value":"8.8.8.8","owner":"cosmos127qa40nmq56hu27ae263zvfk3ey0tkapwk0gq6","price":[{"denom":"STAKE","amount":"10"}]}
+```
 13. alice从jack手上购买域名
 ```
 curl -XPOST -s http://localhost:1317/nameservice/names --data-binary '{"base_req":{"from":"alice","password":"foobarbaz","chain_id":"testchain","sequence":"1","account_number":"1"},"name":"jack1.id","amount":"10nametoken","buyer":"cosmos1h7ztnf2zkf4558hdxv5kpemdrg3tf94hnpvgsl"}'
