@@ -1,4 +1,4 @@
-###记录区块链相关的知识
+### 记录区块链相关的知识
 其中
 - solidity-notes solidity官方文档的笔记
 - erc20-contracts 记录一些比较流行的erc20代币和自己创建的erc20代币
