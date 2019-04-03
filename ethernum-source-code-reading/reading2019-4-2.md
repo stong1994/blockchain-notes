@@ -83,12 +83,62 @@ Nonce|	由pow共识运算结果
 叔块也是区块，所以结构上和区块一样。
 
 ## 交易
-以太坊是一个基于账户的系统，目前有两种账户：普通账户和合约账户。
+以太坊是一个基于账户的系统，目前有两种账户：普通账户和合约账户。每种账户都可以进行交易，因此有两种交易类型：普通交易和合约交易。
+- 合约交易：用于发布合约以及调用合约方法。当然，合约交易也是可以向合约帐户进行token转帐
+- 普通交易, 用于多个帐户间进行token转帐
+
+> 源码位置:core/types/transaction.go:38
+```go
+type Transaction struct {
+	data txdata
+	// caches
+	hash atomic.Value
+	size atomic.Value
+	from atomic.Value
+}
+```
+字段|说明
+---|---
+data|交易数据
+hash|交易哈希
+size|字节数
+from|交易发起方
+
+> 源码位置:core/types/transaction.go:46
+```go
+type txdata struct {
+	AccountNonce uint64          `json:"nonce"    gencodec:"required"`
+	Price        *big.Int        `json:"gasPrice" gencodec:"required"`
+	GasLimit     uint64          `json:"gas"      gencodec:"required"`
+	Recipient    *common.Address `json:"to"       rlp:"nil"` // nil means contract creation
+	Amount       *big.Int        `json:"value"    gencodec:"required"`
+	Payload      []byte          `json:"input"    gencodec:"required"`
+
+	// Signature values
+	V *big.Int `json:"v" gencodec:"required"`
+	R *big.Int `json:"r" gencodec:"required"`
+	S *big.Int `json:"s" gencodec:"required"`
+
+	// This is only used when marshaling to JSON.
+	Hash *common.Hash `json:"hash" rlp:"-"`
+}
+```
+字段|说明
+---|---
+AccountNonce|账户的nonce值
+Price|gasPrice
+GasLimit| gasLimit
+Recipient|交易接收方，nil代表创建合约
+Amount|金额
+Payload|TODO
+V|TODO
+S|TODO
+S|TODO
+Hash|TODO
 
 如果目标账户是零账户（账户地址是0），交易将创建一个新合约。
 
 创建合约交易的payload（二进制数据）被当作EVM字节码执行。执行的输出做为合约代码被永久存储。这意味着，为了创建一个合约，你不需要向合约发送真正的合约代码，而是发送能够返回真正代码的代码。
 
-
 ### 推荐文章
-- https://www.chainnews.com/articles/817781462334.htm
+- 以太坊上发送交易的九种办法：https://www.chainnews.com/articles/817781462334.htm
