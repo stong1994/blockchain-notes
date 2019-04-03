@@ -1,0 +1,1 @@
+欲分析，参考地址：https://ethereum.stackexchange.com/questions/27432/what-is-nonce-in-ethereum-how-does-it-prevent-double-spending
