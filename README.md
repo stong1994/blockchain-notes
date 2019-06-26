@@ -5,3 +5,5 @@
 - pet-shop-tutorial: 用solidity+truffle+ganache+web3.js构建简单Dapp
 - tendermint: 用tendermint的官方例子做练习
 - HD钱包的生成: 总结分层确定性(HD)钱包的生成过程
+- go-ethereum-practise: golang与以太坊交互的例子
+- SimpleBlockChain: golang构建的简单区块链
